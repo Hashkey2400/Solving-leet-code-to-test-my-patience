@@ -1,7 +1,9 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i]+nums[j]==target:
-                    return [i,j]
-        return[]
+        num_to_store ={}
+        for i, num in enumerate(nums):
+            numdiff = target - num
+            if numdiff in num_to_store:
+                return [num_to_store[numdiff],i]
+            num_to_store[num]=i
+        return []
